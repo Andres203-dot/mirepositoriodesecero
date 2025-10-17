@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Doctores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #c4d7da, #178888);
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+        h2 {
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .doctores-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+        .doctor-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 250px;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .doctor-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .doctor-info {
+            padding: 20px;
+        }
+        .doctor-info h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .doctor-info p {
+            margin: 0;
+            color: #666;
+            font-style: italic;
+        }
+        .nav-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 15px;
+            text-align: center;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Nuestro Equipo Médico</h2>
+    <div id="doctoresContainer" class="doctores-container">
+        <!-- Los doctores se cargarán aquí dinámicamente -->
+    </div>
+    <a href="TCC.html" class="nav-button">Agendar una Cita</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const formData = new FormData();
+            formData.append('accion', 'consultar_doctores');
+
+            fetch('Bakend.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const container = document.getElementById('doctoresContainer');
+                    container.innerHTML = ''; // Limpiar por si acaso
+                    data.doctores.forEach((doctor, index) => {
+                        const card = `
+                            <div class="doctor-card" style="animation-delay: ${index * 0.1}s">
+                                <img src="${doctor.foto_url}" alt="Foto de ${doctor.nombre}">
+                                <div class="doctor-info">
+                                    <h3>${doctor.nombre}</h3>
+                                    <p>${doctor.especialidad}</p>
+                                </div>
+                            </div>`;
+                        container.innerHTML += card;
+                    });
+                }
+            })
+            .catch(error => console.error('Error al cargar los doctores:', error));
+        });
+    </script>
+
+</body>
+</html>
