@@ -1,0 +1,4 @@
+# Ignorar la carpeta de dependencias de Composer
+/vendor/
+
+# Si usas un archivo para variables de entorno locales, ignóralo también.

@@ -7,8 +7,14 @@ header('Content-Type: application/json');
 
 // Conexión a MongoDB
 try {
-    // ¡IMPORTANTEE! Reemplaza <db_password> con tu contraseña real de la base de datos.
-    $uri = "mongodb+srv://andresortega007:Qwerty132@cluster0.14cjzcs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    // ¡MEJORA DE SEGURIDAD! Leemos la cadena de conexión de una variable de entorno.
+    $uri = getenv('MONGODB_URI');
+    if ($uri === false) {
+        // Si la variable de entorno no está configurada, termina con un error.
+        // No muestres el error en producción, solo regístralo.
+        throw new Exception("La variable de entorno MONGODB_URI no está configurada.");
+    }
+
     $cliente = new MongoDB\Client($uri);
     
     // Selecciona la base de datos. Puedes usar la misma o una nueva en tu clúster.
