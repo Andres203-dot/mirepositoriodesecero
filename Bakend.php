@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 // Conexión a MongoDB
 try {
-    // ¡IMPORTANTE! Reemplaza <db_password> con tu contraseña real de la base de datos.
+    // ¡IMPORTANTEE! Reemplaza <db_password> con tu contraseña real de la base de datos.
     $uri = "mongodb+srv://andresortega007:Qwerty132@cluster0.14cjzcs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
     $cliente = new MongoDB\Client($uri);
     
