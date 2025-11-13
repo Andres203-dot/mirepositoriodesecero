@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MediCitas — Inicio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="logo">
+        <!-- simple icon -->
+        <svg width="36" height="36" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#ffffff"/><path d="M24 12v24M12 24h24" stroke="#2b9bd4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h1>MediCitas</h1>
+        <div class="note">Gestión profesional de citas médicas</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Inicio</a>
+      <a href="citas.html">Citas</a>
+      <a href="registro.html">Registro</a>
+      <a href="login.html">Iniciar sesión</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <div class="hero-left">
+        <h2>Agenda, gestiona y sigue la atención de tus pacientes con facilidad</h2>
+        <p class="note"></p>
+        <div class="hero-cta">
+          <a class="btn" href="citas.html">Agendar Cita</a>
+          <a class="btn ghost" href="registro.html">Crear cuenta</a>
+        </div>
+        <p class="note" style="margin-top:12px"></p>
+      </div>
+
+      <div class="illus card" aria-hidden="true">
+        <div class="spark"></div>
+        <!-- stylized illustration placeholder -->
+        <svg width="220" height="120" viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
+          <rect width="220" height="120" rx="12" fill="#e6f2fa"/>
+          <g fill="#026aa7" font-family="sans-serif" font-size="14" font-weight="700" transform="translate(12,12)">
+            <text x="0" y="24">Consulta rápida</text>
+            <text x="0" y="48" font-size="12" font-weight="500" fill="#0a7db1">Pediatría • Dermatologia • General</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section style="margin-top:20px" class="card">
+      <h3>Características principales</h3>
+      <div style="display:grid;gap:12px;margin-top:10px">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div style="width:52px;height:52px;border-radius:10px;background:linear-gradient(90deg,#e6f2fa,#ffffff);display:flex;align-items:center;justify-content:center">🩺</div>
+          <div>
+            <strong>Fácil de usar</strong>
+            <div class="note"></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <div style="width:52px;height:52px;border-radius:10px;background:linear-gradient(90deg,#e9fff5,#ffffff);display:flex;align-items:center;justify-content:center">🔒</div>
+          <div>
+            <strong>Seguridad</strong>
+            <div class="note"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="note">.</div>
+  </footer>
+</body>
+</html>
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gestión de Citas — MediCitas</title>
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="header">
+    <div class="brand"><div class="logo"><svg width="36" height="36" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#ffffff"/><path d="M24 12v24M12 24h24" stroke="#2b9bd4" stroke-width="2.5"/></svg></div><div><h1>MediCitas</h1><div class="note">Gestión de Citas</div></div></div>
+    <nav class="nav"><a href="index.html">Inicio</a><a href="citas.html">Citas</a><a href="registro.html">Registro</a><a href="login.html">Iniciar sesión</a><a href="contacto.html">Contacto</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="card" style="max-width:760px;margin:auto">
+      <h2>Agendar una nueva cita</h2>
+      <p class="note">Selecciona médico, especialidad, fecha y hora.</p>
+
+      <form method="get" action="citas.html#confirmBox">
+        <label for="med">Médico</label>
+        <select id="med" name="medico" class="input" required>
+          <option value="">Selecciona un médico</option>
+          <option value="d1">Dr. Ricael Palacios — Pediatría</option>
+          <option value="d2">Dr. Christian Angelone — Medicina General</option>
+          <option value="d3">Dra. Jesus Ortega — Dermatologo</option>
+        </select>
+
+        <label for="esp">Especialidad</label>
+        <input id="esp" name="especialidad" class="input" placeholder="Ej: Pediatría">
+
+        <div class="row">
+          <div>
+            <label>Fecha</label>
+            <input type="date" name="fecha" class="input" required>
+          </div>
+          <div>
+            <label>Hora</label>
+            <input type="time" name="hora" class="input" required>
+          </div>
+        </div>
+
+        <label>Motivo (opcional)</label>
+        <textarea name="motivo" rows="3" class="input"></textarea>
+
+        <div style="margin-top:10px;display:flex;gap:12px;align-items:center">
+          <!-- envia a la misma página con ancla; :target mostrará confirm -->
+          <button class="btn" type="submit">Confirmar cita</button>
+          <a class="btn ghost" href="index.html">Volver</a>
+        </div>
+      </form>
+
+      <h3 style="margin-top:18px">Agenda rápida (últimas)</h3>
+      <table class="table">
+        <thead><tr><th>Fecha</th><th>Hora</th><th>Médico</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>2025-11-15</td><td>09:00</td><td>Dra. Laura Gómez</td><td><span class="pill">Agendada</span></td></tr>
+          <tr><td>2025-11-20</td><td>15:30</td><td>Dr. Carlos Ruiz</td><td><span class="pill">Agendada</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- confirm box: se muestra al apuntar a #confirmBox -->
+  <div id="confirmBox" role="dialog" aria-labelledby="confirmTitle">
+    <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="confirm-emoji">✅</div>
+      <h3 id="confirmTitle">Cita registrada</h3>
+      <p class="note">Tu cita ha sido registrada correctamente.</p>
+      <a class="btn" href="paciente.html" style="margin-top:12px">Ir a mi panel</a>
+      <a class="note" href="citas.html" style="margin-top:8px">Cerrar</a>
+    </div>
+  </div>
+
+  <footer class="footer"><div class="note">Interfaz con animaciones CSS; para acciones reales integrar API/servidor.</div></footer>
+</body>
+</html>
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contacto — MediCitas</title>
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="header">
+    <div class="brand"><div class="logo"><svg width="36" height="36" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#ffffff"/><path d="M24 12v24M12 24h24" stroke="#2b9bd4" stroke-width="2.5"/></svg></div><div><h1>MediCitas</h1><div class="note">Contacto</div></div></div>
+    <nav class="nav"><a href="index.html">Inicio</a><a href="citas.html">Citas</a><a href="registro.html">Registro</a><a href="login.html">Iniciar sesión</a><a href="contacto.html">Contacto</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="card" style="max-width:760px;margin:auto">
+      <h2>Contáctanos</h2>
+      <p class="note">Rellena el formulario y nos pondremos en contacto.</p>
+
+      <form method="get" action="#">
+        <div class="row">
+          <div><label>Nombre</label><input name="nombre" class="input" required></div>
+          <div><label>Correo</label><input name="email" type="email" class="input" required></div>
+        </div>
+        <label>Mensaje</label>
+        <textarea name="mensaje" rows="5" class="input" required></textarea>
+
+        <div style="margin-top:10px;display:flex;gap:12px;align-items:center">
+          <button class="btn" type="submit">Enviar mensaje</button>
+          <div class="note">Síguenos: <a href="#" class="note">Facebook</a> • <a href="#" class="note">Instagram</a></div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="note"></div></footer>
+</body>
+</html>
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iniciar sesión — MediCitas</title>
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="header">
+    <div class="brand"><div class="logo"><svg width="36" height="36" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#ffffff"/><path d="M24 12v24M12 24h24" stroke="#2b9bd4" stroke-width="2.5"/></svg></div><div><h1>MediCitas</h1><div class="note">Acceso</div></div></div>
+    <nav class="nav"><a href="index.html">Inicio</a><a href="citas.html">Citas</a><a href="registro.html">Registro</a><a href="login.html">Iniciar sesión</a><a href="contacto.html">Contacto</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="card" style="max-width:640px;margin:auto">
+      <h2>Iniciar sesión</h2>
+      <p class="note">Inicia sesion si ya tienes una cuenta.</p>
+
+      <form method="get" action="#">
+        <label for="lemail">Correo</label>
+        <input id="lemail" name="email" class="input" type="email" required placeholder="correo@ejemplo.com">
+        <label for="lpass">Contraseña</label>
+        <input id="lpass" name="password" class="input" type="password" required placeholder="Contraseña">
+
+        <div style="display:flex;align-items:center;gap:12px;margin-top:8px">
+          <button class="btn" type="submit">Entrar</button>
+          <a class="note" href="registro.html">Crear cuenta</a>
+          <a class="note" href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="note"></div></footer>
+</body>
+</html>
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panel — Médico</title>
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="header">
+    <div class="brand"><div class="logo"><svg width="36" height="36" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#ffffff"/><path d="M24 12v24M12 24h24" stroke="#2b9bd4" stroke-width="2.5"/></svg></div><div><h1>MediCitas</h1><div class="note">Panel del Médico</div></div></div>
+    <nav class="nav"><a href="index.html">Inicio</a><a href="citas.html">Citas</a><a href="registro.html">Registro</a><a href="login.html">Iniciar sesión</a><a href="contacto.html">Contacto</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <h2>Dra. Laura Gómez</h2>
+          <div class="note">Pediatría • laura@clinica.com</div>
+        </div>
+        <div><a class="btn ghost" href="index.html">Cerrar sesión</a></div>
+      </div>
+
+      <h3 style="margin-top:16px">Citas hoy</h3>
+      <table class="table">
+        <thead><tr><th>Hora</th><th>Paciente</th><th>Especialidad</th><th>Estado</th><th>Acciones</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>09:00</td><td>María López</td><td>Pediatría</td><td><span class="pill">Agendada</span></td>
+            <td><a class="btn" href="#">Marcar atendida</a> <a class="btn ghost" href="#">Cancelar</a></td>
+          </tr>
+          <tr>
+            <td>10:30</td><td>Carlos Díaz</td><td>Pediatría</td><td><span class="pill">Agendada</span></td>
+            <td><a class="btn" href="#">Marcar atendida</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:16px;">
+        <h4>Perfil</h4>
+        <div class="card note">Dra. Laura Gómez — Pediatría — Tel: 300 111 1111</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="note">Para que los botones funcionen hay que conectar con backend (PHP/Node) o añadir JS que consuma una API.</div></footer>
+</body>
+</html>
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panel — Paciente</title>
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="header">
+    <div class="brand"><div class="logo"><svg width="36" height="36" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#ffffff"/><path d="M24 12v24M12 24h24" stroke="#2b9bd4" stroke-width="2.5"/></svg></div><div><h1>MediCitas</h1><div class="note">Panel del Paciente</div></div></div>
+    <nav class="nav"><a href="index.html">Inicio</a><a href="citas.html">Citas</a><a href="registro.html">Registro</a><a href="login.html">Iniciar sesión</a><a href="contacto.html">Contacto</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <h2>Hola, Juan Pérez</h2>
+          <div class="note">Paciente • correo@ejemplo.com</div>
+        </div>
+        <div>
+          <a class="btn ghost" href="index.html">Cerrar sesión</a>
+        </div>
+      </div>
+
+      <h3 style="margin-top:16px">Próximas citas</h3>
+      <table class="table">
+        <thead><tr><th>Fecha</th><th>Hora</th><th>Médico</th><th>Especialidad</th><th>Estado</th><th>Acciones</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>2025-11-15</td>
+            <td>09:00</td>
+            <td>Dra. Laura Gómez</td>
+            <td>Pediatría</td>
+            <td><span class="pill">Agendada</span></td>
+            <td><a class="btn ghost" href="citas.html">Reprogramar</a> <a class="btn secondary" href="#">Cancelar</a></td>
+          </tr>
+          <tr>
+            <td>2025-12-01</td>
+            <td>11:30</td>
+            <td>Dr. Carlos Ruiz</td>
+            <td>General</td>
+            <td><span class="pill" style="background:#fff7ed;color:#d97706">Pendiente</span></td>
+            <td><a class="btn ghost" href="citas.html">Reprogramar</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:18px;display:flex;gap:12px">
+        <a class="btn" href="citas.html">Agendar nueva cita</a>
+        <a class="btn ghost" href="contacto.html">Contactar clínica</a>
+      </div>
+
+      <h3 style="margin-top:18px">Historial</h3>
+      <div class="card note">03-09-2024 • 10:00 — Consulta (Ginecología) — Atendida</div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="note">Panel visual — requiere integración para actuar sobre datos reales.</div></footer>
+</body>
+</html>
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Registro — MediCitas</title>
+<link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="header">
+    <div class="brand"><div class="logo"><svg width="36" height="36" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#ffffff"/><path d="M24 12v24M12 24h24" stroke="#2b9bd4" stroke-width="2.5"/></svg></div><div><h1>MediCitas</h1><div class="note">Registro de usuario</div></div></div>
+    <nav class="nav"><a href="index.html">Inicio</a><a href="citas.html">Citas</a><a href="registro.html">Registro</a><a href="login.html">Iniciar sesión</a><a href="contacto.html">Contacto</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Crear cuenta</h2>
+      <p class="note">Regístrate como paciente o médico. Validación básica con HTML5.</p>
+
+      <!-- Formulario sin JS; HTML5 validation -->
+      <form method="get" action="#">
+        <div class="row">
+          <div>
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" class="input" type="text" required placeholder="Juan Pérez">
+          </div>
+          <div>
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" class="input" type="email" required placeholder="correo@ejemplo.com">
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" class="input" type="tel" pattern="\\+?[0-9\\s\\-]{7,20}" placeholder="+57 300 123 4567">
+          </div>
+          <div>
+            <label for="tipo">Tipo de usuario</label>
+            <select id="tipo" name="tipo" class="input" required>
+              <option value="">Selecciona</option>
+              <option value="paciente">Paciente</option>
+              <option value="medico">Médico</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="password">Contraseña</label>
+            <input id="password" name="password" class="input" type="password" minlength="6" required placeholder="Mínimo 6 caracteres">
+          </div>
+          <div>
+            <label for="especialidad">Especialidad (opcional — solo médicos)</label>
+            <input id="especialidad" name="especialidad" class="input" type="text" placeholder="Medicina General">
+          </div>
+        </div>
+
+        <div style="margin-top:8px;display:flex;gap:12px;align-items:center">
+          <button class="btn" type="submit">Crear cuenta (demo)</button>
+          <a class="note" href="login.html">¿Ya tienes cuenta? Iniciar sesión</a>
+        </div>
+      </form>
+    </section>
+  </main>// Simula almacenamiento de usuarios y citas
+document.addEventListener("DOMContentLoaded", () => {
+  const registroForm = document.getElementById("registroForm");
+  const loginForm = document.getElementById("loginForm");
+  const citaForm = document.getElementById("citaForm");
+
+  if (registroForm) {
+    registroForm.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Usuario registrado exitosamente ✅");
+      window.location.href = "login.html";
+    });
+  }
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Inicio de sesión correcto ✅");
+      window.location.href = "paciente.html";
+    });
+  }
+
+  if (citaForm) {
+    citaForm.addEventListener("submit", e => {
+      e.preventDefault();
+      alert("Cita agendada correctamente 📅");
+      window.location.href = "paciente.html";
+    });
+  }
+});
+:root{
+  --bg:#f1f1f1;
+  --card:#ffffff;
+  --glass:rgba(255,255,255,0.65);
+  --primary:#0c2c2c;    /* azul */
+  --accent:#0aa96b;     /* verde */
+  --muted:#617386;
+  --soft-shadow: 0 10px 30px rgba(7,34,60,0.07);
+  --radius:14px;
+  --glass-border: rgba(255,255,255,0.45);
+  --glass-blur: 8px;
+  --text:#05202a;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:linear-gradient(180deg,#f5fbff 0%, #ffffff 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Header */
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 36px;
+  background:linear-gradient(90deg,var(--primary),#2a9bd3);
+  color:white;
+  position:sticky;top:0;z-index:40;
+  box-shadow:0 6px 20px rgba(10,70,120,0.12);
+}
+.brand{display:flex;gap:12px;align-items:center}
+.brand .logo{
+  width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,#fff,#e6f2fa);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(8,35,63,0.08)
+}
+.brand h1{margin:0;font-size:1.05rem;letter-spacing:0.3px}
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600;padding:10px 8px;border-radius:10px;transition:all .18s ease}
+.nav a:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px)}
+
+/* Container */
+.container{max-width:1100px;margin:28px auto;padding:0 20px}
+
+/* Cards & hero */
+.card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--soft-shadow);overflow:hidden}
+.hero{
+  display:flex;gap:22px;align-items:center;padding:28px;border-radius:20px;
+  background:linear-gradient(135deg, rgba(11,111,166,0.06), rgba(10,169,107,0.03));
+  box-shadow:0 18px 48px rgba(12,45,80,0.06);
+}
+.hero-left{flex:1}
+.hero h2{margin:0;color:var(--primary);font-size:1.6rem}
+.hero p{color:var(--muted);margin-top:10px}
+.hero-cta{margin-top:18px;display:flex;gap:12px}
+.btn{
+  display:inline-block;padding:11px 16px;border-radius:12px;background:var(--primary);color:white;text-decoration:none;font-weight:700;
+  box-shadow:0 8px 22px rgba(11,111,166,0.18);transition:transform .18s ease, box-shadow .18s ease;
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(11,111,166,0.20)}
+.btn.ghost{background:transparent;border:2px solid rgba(11,111,166,0.12);color:var(--primary);box-shadow:none}
+
+/* floating illustration */
+.illus{
+  width:340px;height:200px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg, rgba(11,111,166,0.08), rgba(10,169,107,0.04));
+  position:relative;overflow:hidden;
+}
+.spark {
+  position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(10,169,107,0.18), transparent 45%);
+  top:-40px;right:-40px;filter:blur(30px);opacity:0.95;transform:scale(.9);animation:float 6s ease-in-out infinite;
+}
+@keyframes float{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(3deg)}100%{transform:translateY(0) rotate(0)}}
+
+/* Forms */
+form{display:grid;gap:12px}
+label{font-weight:600;color:var(--text);font-size:0.92rem}
+.input, input[type="text"],input[type="email"],input[type="password"],select,textarea{
+  width:100%;padding:12px;border-radius:10px;border:1px solid #e6f3fa;background:#fbfeff;font-size:0.95rem;outline:none;
+  transition:box-shadow .12s ease, transform .12s ease;
+}
+.input:focus, input:focus, select:focus, textarea:focus{box-shadow:0 8px 24px rgba(10,110,170,0.06);transform:translateY(-2px)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.note{color:var(--muted);font-size:0.92rem}
+
+/* Tables */
+.table{width:100%;border-collapse:collapse;margin-top:12px}
+.table th,.table td{padding:12px;border-bottom:1px solid #f0f7fb;text-align:left}
+.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#ecfdf5;color:var(--accent);font-weight:700}
+
+/* Animations for rows */
+.table tr{transition:transform .14s ease, background .14s ease}
+.table tr:hover{transform:translateY(-4px);background:linear-gradient(90deg, rgba(11,111,166,0.03), transparent)}
+
+/* Modal-like confirmation using :target */
+#confirmBox{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);width:520px;max-width:92%;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 30px 80px rgba(7,34,60,0.18);opacity:0;pointer-events:none;transition:all .22s ease}
+#confirmBox:target{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.confirm-emoji{font-size:44px;margin-bottom:8px;display:block}
+
+/* Footer */
+.footer{margin-top:28px;padding:22px;text-align:center;color:var(--muted)}
+
+/* Responsive */
+@media(max-width:900px){
+  .hero{flex-direction:column}
+  .row{grid-template-columns:1fr}
+  .nav{display:none}
+}
